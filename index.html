@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Amazing Stomach Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        .background {
+            background: linear-gradient(270deg, #ffcce6, #ccf2ff, #ffe6cc);
+            background-size: 300% 300%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+        }
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .icon-spin {
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .food-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 8s linear forwards infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="background font-sans text-gray-800 overflow-x-hidden">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-12 relative">
+            <h1 class="text-5xl md:text-6xl font-bold text-purple-700 mb-4 floating">The Amazing Stomach!</h1>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03488c08-2e60-4f15-ad49-42f60441b70b.png" alt="Happy cartoon stomach waving with digestive juices bubbling around it" class="mx-auto rounded-full border-8 border-yellow-400 h-48 w-48 object-cover" />
+            <div class="absolute -top-8 -right-8 icon-spin">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ad20545-d884-49ff-8ddf-1241daa5d202.png" alt="Spinning cheeseburger icon" class="h-20 w-20 rounded-full" />
+            </div>
+            <div class="absolute -bottom-8 -left-8 bounce">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/17747416-0067-408e-b8d7-3c53ea0d4b01.png" alt="Bouncing apple icon" class="h-20 w-20 rounded-full" />
+            </div>
+        </header>
+
+        <!-- Floating info bubbles -->
+        <div class="floating absolute top-20 left-10 bg-blue-100 p-4 rounded-full w-36 h-36 flex items-center justify-center shadow-lg opacity-90" style="animation-delay: 0.5s;">
+            <p class="text-center">The stomach mixes food with digestive juices!</p>
+        </div>
+        <div class="floating absolute top-1/3 right-16 bg-pink-100 p-4 rounded-full w-36 h-36 flex items-center justify-center shadow-lg opacity-90" style="animation-delay: 1s;">
+            <p class="text-center">Stomach acid helps break down food!</p>
+        </div>
+        <div class="floating absolute bottom-1/4 left-20 bg-green-100 p-4 rounded-full w-36 h-36 flex items-center justify-center shadow-lg opacity-90" style="animation-delay: 1.5s;">
+            <p class="text-center">Food stays here for 2-4 hours!</p>
+        </div>
+
+        <!-- Main content -->
+        <main class="max-w-3xl mx-auto bg-white bg-opacity-80 rounded-3xl p-8 shadow-xl backdrop-blur-sm relative z-10">
+            <h2 class="text-3xl font-bold text-orange-500 mb-6">Your Super Smart Stomach</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-4">🤚 Hands-On Activity Section</h3>
+                    <ol class="list-decimal pl-5 space-y-3">
+                        <li>Place your hand on your belly</li>
+                        <li>Find the spot right below your ribs</li>
+                        <li>Make a fist - that's about the size!</li>
+                        <li>Now pretend your fist is your stomach</li>
+                        <li>Imagine it churning like a washing machine!</li>
+                    </ol>
+                </div>
+                <div class="relative">
+                    <svg width="300" height="300" class="mx-auto">
+                        <!-- Simple digestive system diagram -->
+                        <path d="M50,150 C100,70 200,70 250,150 S200,220 150,220 S50,180 50,150" fill="#ffe0b2" stroke="#ff9800" stroke-width="3"/>
+                        <circle cx="80" cy="130" r="10" fill="#8bc34a" class="bounce" />
+                        <circle cx="120" cy="180" r="8" fill="#ff5722" class="bounce" style="animation-delay: 0.3s;"/>
+                        <path d="M50,150 L10,100 M250,150 L290,100" stroke="#795548" stroke-width="3"/>
+                        <path d="M150,220 L150,270" stroke="#795548" stroke-width="3"/>
+                        
+                        <!-- Animated food path -->
+                        <path d="M10,100 Q50,50 90,70 T150,80 T210,110 T240,150" 
+                              fill="none" stroke="#ff5722" stroke-width="2" stroke-dasharray="5" 
+                              class="food-path"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="bg-yellow-100 p-6 rounded-xl mb-8 border-2 border-yellow-300">
+                <h3 class="text-2xl font-bold text-green-600 mb-3">Fun Stomach Facts!</h3>
+                <ul class="space-y-2">
+                    <li>✅ Your stomach is like a stretchy bag that can hold food!</li>
+                    <li>✅ It makes special juices that help break down your food</li>
+                    <li>✅ The stomach walls have muscles that squeeze and mix the food</li>
+                    <li>✅ Stomach acid is strong enough to dissolve some metals!</li>
+                    <li>✅ Good bacteria in your stomach help keep you healthy</li>
+                </ul>
+            </div>
+
+            <div class="relative h-64 mb-8 rounded-xl overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-200 to-purple-200"></div>
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cb6c93a2-a10f-4767-ad4f-f009042867d6.png" alt="Colorful illustration showing the digestive process from mouth to stomach to intestines" class="w-full h-full object-cover opacity-70" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button id="digestBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-full text-lg transform transition hover:scale-110">Click to See Digestion!</button>
+                </div>
+            </div>
+
+            <div id="digestionDemo" class="hidden bg-white p-6 rounded-xl shadow-lg mb-8">
+                <h4 class="text-xl font-bold text-blue-700 mb-4">Digestion Process</h4>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex flex-col items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37a11b55-1a9c-4c7e-b6f5-17c7d1550f91.png" alt="Chewing mouth icon" class="h-16 w-16 mb-2" />
+                        <span class="text-sm">Chewing</span>
+                    </div>
+                    <div class="flex-1 h-1 bg-gray-300 mx-2 relative">
+                        <div class="absolute top-0 left-0 h-full bg-green-400 digestion-progress" style="width:0%"></div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51f5f490-0e11-4aa7-9f77-e69692d9e988.png" alt="Stomach mixing icon" class="h-16 w-16 mb-2" />
+                        <span class="text-sm">Stomach</span>
+                    </div>
+                    <div class="flex-1 h-1 bg-gray-300 mx-2 relative">
+                        <div class="absolute top-0 left-0 h-full bg-green-400 digestion-progress" style="width:0%"></div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/33adda3f-45de-48d0-bcde-5b9e874a92d2.png" alt="Intestinal absorption icon" class="h-16 w-16 mb-2" />
+                        <span class="text-sm">Intestines</span>
+                    </div>
+                </div>
+                <button id="resetBtn" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mt-2">Reset</button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/579f0bd8-deab-43d2-85aa-857b9c03e2d3.png" alt="Apple icon" class="mx-auto mb-2" />
+                    <p>Fruits</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a1537e0f-46e2-4e75-909c-d90cc2c034af.png" alt="Vegetable icon" class="mx-auto mb-2" />
+                    <p>Veggies</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bc6421f0-97a7-4701-82e1-7984d514187a.png" alt="Meat icon" class="mx-auto mb-2" />
+                    <p>Protein</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c96359b5-9177-4cc9-b613-49e851d42bd7.png" alt="Water drop icon" class="mx-auto mb-2" />
+                    <p>Water</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer with animated characters -->
+        <footer class="mt-16 text-center relative">
+            <div class="flex justify-center space-x-12 mb-6">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/46dacba4-49ec-4f82-8c34-e1310cca58af.png" alt="Happy bread slice character waving" class="h-20 w-20 bounce" style="animation-delay: 0.2s;" />
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f39ddd03-fcd5-45e1-818f-4cc071f57533.png" alt="Smiling milk carton character" class="h-20 w-20 bounce" style="animation-delay: 0.4s;" />
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/594e5753-b5bb-4bb2-9c76-89b6df73564f.png" alt="Dancing carrot character" class="h-20 w-20 bounce" style="animation-delay: 0.6s;" />
+            </div>
+            <p class="text-sm text-gray-600">© 2023 The Stomach Explorer Club</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const digestBtn = document.getElementById('digestBtn');
+            const digestionDemo = document.getElementById('digestionDemo');
+            const progressBars = document.querySelectorAll('.digestion-progress');
+            const resetBtn = document.getElementById('resetBtn');
+
+            digestBtn.addEventListener('click', function() {
+                digestionDemo.classList.remove('hidden');
+                digestBtn.classList.add('hidden');
+                
+                // Animate progress bars sequentially
+                progressBars.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.width = '100%';
+                    }, index * 1500);
+                });
+            });
+
+            resetBtn.addEventListener('click', function() {
+                digestionDemo.classList.add('hidden');
+                digestBtn.classList.remove('hidden');
+                
+                progressBars.forEach(bar => {
+                    bar.style.width = '0%';
+                });
+            });
+
+            // Add random floating elements dynamically
+            for (let i = 0; i < 5; i++) {
+                createFloatingElement();
+            }
+
+            function createFloatingElement() {
+                const element = document.createElement('div');
+                const size = Math.random() * 40 + 20;
+                const colors = ['bg-red-100', 'bg-blue-100', 'bg-yellow-100', 'bg-green-100'];
+                const shapes = ['rounded-full', 'rounded-lg'];
+                
+                element.className = `absolute ${colors[Math.floor(Math.random() * colors.length)]} ${
+                    shapes[Math.floor(Math.random() * shapes.length)]
+                } ${size > 40 ? 'p-2' : 'p-1'}`;
+                
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.left = `${Math.random() * 100}vw`;
+                element.style.top = `${Math.random() * 100}vh`;
+                element.style.animation = `float ${Math.random() * 5 + 5}s ease-in-out infinite`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                element.style.opacity = '0.7';
+                element.style.zIndex = '0';
+                
+                document.body.appendChild(element);
+            }
+        });
+    </script>
+</body>
+</html>
+
